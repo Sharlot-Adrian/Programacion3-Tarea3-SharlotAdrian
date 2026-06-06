@@ -33,7 +33,7 @@ public class RegistroUsuarios {
                 opcion = scanner.nextInt();
                 scanner.nextLine();
             }catch(InputMismatchException e){
-                System.out.println("Ingrese un NUMERO VALIDO");
+                System.out.println("Error: Debe ingresar un número válido.");
                 scanner.nextLine();
             }
 
