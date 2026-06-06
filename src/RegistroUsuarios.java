@@ -28,9 +28,7 @@ public class RegistroUsuarios {
             System.out.println("1. Registrar usuario     ");    
             System.out.println("2. Salir                 ");
             System.out.println("\nDigite el numero de la opcion que desea seleccionar: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-
+            
             try{
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -54,6 +52,7 @@ public class RegistroUsuarios {
 
                         System.out.println("Ingrese el salario: ");
                         double salario = scanner.nextDouble();
+                        scanner.nextLine();
 
                         try{
                             validarUsuario(nombre, edad, correo, salario);
