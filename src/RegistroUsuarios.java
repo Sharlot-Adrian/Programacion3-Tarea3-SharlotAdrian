@@ -17,10 +17,67 @@ public class RegistroUsuarios {
     }
 
     public void menuInteractivo(){
+        int opcion = 0;
 
         do{
+            System.out.println("=========================");
+            System.out.println("   REGISTRO DE USUARIOS  ");
+            System.out.println("=========================");
+            System.out.println("1. Registrar usuario     ");    
+            System.out.println("2. Salir                 ");
+            System.out.println("\nDigite el numero de la opcion que desea seleccionar: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine();
 
-        }while();
+            switch(opcion){
+                case 1:
+                    {
+                        System.out.println("\n[REGISTRAR USUARIO] ");
+                        System.out.println("Ingrese un nombre: ");
+                        String nombre = scanner.nextLine();
+                        System.out.println("Ingrese la edad: ");
+                        int edad = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.println("Ingrese el correo electronico: ");
+                        String correo = scanner.nextLine();
+
+                        System.out.println("Ingrese el salario: ");
+                        double salario = scanner.nextDouble();
+
+                        try{
+                            validarUsuario(nombre, edad, correo, salario);
+                        } 
+                        catch(NombreInvalidoException e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch(EdadInvalidadException e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch(CorreoInvalidoException e){
+                            System.out.println(e.getMessage());
+                        }
+                        catch(SalarioInvalidoException e){
+                            System.out.println(e.getMessage());
+                        }
+                        finally{
+                            System.out.println("Proceso finalizado.");
+                        }
+
+                        break;
+                    }
+                case 2:{
+                    System.out.println("Saliendo...");
+                    break;
+                }
+                default:{
+
+                    break;
+                }
+
+            }
+
+        }while(opcion !=2);
 
     }
 }
