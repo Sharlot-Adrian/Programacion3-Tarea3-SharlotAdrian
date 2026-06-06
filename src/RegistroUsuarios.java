@@ -15,7 +15,7 @@ public class RegistroUsuarios {
         if (!correo.contains("@") || !correo.contains("."))
             throw new CorreoInvalidoException("El correo electrónico no es válido. ");
         if (salario <= 0)
-            throw new SalarioInvalidoException("El salario debe ser mayor que 0");
+            throw new SalarioInvalidoException("El salario debe ser mayor que 0. ");
     }
 
     public void menuInteractivo(){
