@@ -42,23 +42,28 @@ public class RegistroUsuarios {
             switch(opcion){
                 case 1:
                     {
-                        System.out.println("\n[REGISTRAR USUARIO] ");
-                        System.out.println("Ingrese un nombre: ");
-                        String nombre = scanner.nextLine();
-                        System.out.println("Ingrese la edad: ");
-                        int edad = scanner.nextInt();
-                        scanner.nextLine();
+                        try {
+                            System.out.println("\n[REGISTRAR USUARIO] ");
+                            System.out.println("Ingrese un nombre: ");
+                            String nombre = scanner.nextLine();
+                        
+                            System.out.println("Ingrese la edad: ");
+                            int edad = scanner.nextInt();
+                            scanner.nextLine();
 
-                        System.out.println("Ingrese el correo electronico: ");
-                        String correo = scanner.nextLine();
+                            System.out.println("Ingrese el correo electronico: ");
+                            String correo = scanner.nextLine();
 
-                        System.out.println("Ingrese el salario: ");
-                        double salario = scanner.nextDouble();
-                        scanner.nextLine();
+                            System.out.println("Ingrese el salario: ");
+                            double salario = scanner.nextDouble();
+                            scanner.nextLine();
 
-                        try{
                             validarUsuario(nombre, edad, correo, salario);
                         } 
+                        catch (InputMismatchException e){
+                            System.out.println("Error: Debe ingresar un número válido.");
+                            scanner.nextLine();
+                        }
                         catch(NombreInvalidoException e){
                             System.out.println(e.getMessage());
                         }
