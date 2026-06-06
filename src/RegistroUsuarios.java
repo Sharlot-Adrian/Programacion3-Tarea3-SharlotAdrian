@@ -1,10 +1,12 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RegistroUsuarios {
 
     Scanner scanner = new Scanner(System.in);
-    
-    public void validarUsuario (String nombre, int edad, String correo, double salario) throws NombreInvalidoException, EdadInvalidadException, SalarioInvalidoException, CorreoInvalidoException{
+
+    public void validarUsuario(String nombre, int edad, String correo, double salario)
+            throws NombreInvalidoException, EdadInvalidadException, SalarioInvalidoException, CorreoInvalidoException {
 
         if (nombre.isEmpty() || nombre.length() < 3)
             throw new NombreInvalidoException("El nombre debe contener al menos 3 caracteres.");
@@ -28,6 +30,14 @@ public class RegistroUsuarios {
             System.out.println("\nDigite el numero de la opcion que desea seleccionar: ");
             opcion = scanner.nextInt();
             scanner.nextLine();
+
+            try{
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+            }catch(InputMismatchException e){
+                System.out.println("Ingrese un NUMERO VALIDO");
+                scanner.nextLine();
+            }
 
             switch(opcion){
                 case 1:
@@ -71,7 +81,7 @@ public class RegistroUsuarios {
                     break;
                 }
                 default:{
-
+                    System.out.println("Esa opcion no es valida.");
                     break;
                 }
 
